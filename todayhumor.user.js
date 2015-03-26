@@ -56,13 +56,14 @@ $(document).ready(function(){
     .remove();
 
   // Shrink buttons
-  $('div.okNokBookDiv').find('img[src^="images/"]')
+  $('div.okNokBookDiv').find('img[src^="/board/images/"]')
     .width(function(idx, width){
       $(this).width((width>>1));
     })
     .height(function(idx, height){
       $(this).height(height>>1);
-    });
+    })
+    .parent().height('auto').parent().height('auto');
 
   $('#moreReplyButton').css('height', 40);
 
