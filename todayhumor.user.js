@@ -5,7 +5,7 @@
 // @require       http://code.jquery.com/jquery-1.10.1.min.js
 // @include       http://*.todayhumor.*
 // @exclude
-// @version       4
+// @version       5
 // @grant         none
 // ==/UserScript==
 
@@ -66,6 +66,9 @@ $(document).ready(function(){
     .parent().height('auto').parent().height('auto');
 
   $('#moreReplyButton').css('height', 40);
+
+  // Article list table at bottom is distorted by date field width on firefox
+  $('.table_list th:nth-child(5)').css('width', 'auto');
 
   function make_foldable(target, button_target) {
         if(!target || !target.length) {return;}
