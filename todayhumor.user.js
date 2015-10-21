@@ -22,8 +22,6 @@ $(document).ready(function(){
     .data("orig_height", tail_layer.height())
     .data("orig_width", tail_layer.width());
 
-    console.log("Init -> " + tail_layer.data('orig_width') + ", "  + tail_layer.data('orig_height'));
-
   $('div.tailDiv > div > input[onclick="combo()"]')
     .attr('onclick', null)
     .click(function(event){
@@ -113,11 +111,12 @@ $(document).ready(function(){
   make_foldable($('#topmenu_container'), menu_button);
   $('#logo_line').css('width', 'auto');
 
-  if($.browser.mozilla && navigator.platform.lastIndexOf("Linux",0)==0){
+  if (navigator.mozApps && navigator.platform.lastIndexOf("Linux",0) == 0) {
     $('#logo_line2').css('width', '100%');
     $('#login_span').css('left', '50px');
   }
 
   $('div#_atssh').remove();
   $('div#semanticrepScript').remove();
+  $('.view').css('height', '23px');
 });
