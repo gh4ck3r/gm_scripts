@@ -5,7 +5,7 @@
 // @require       http://code.jquery.com/jquery-1.10.1.min.js
 // @include       http://*.todayhumor.*
 // @exclude
-// @version       5
+// @version       6
 // @grant         none
 // ==/UserScript==
 
