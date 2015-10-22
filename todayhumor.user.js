@@ -5,7 +5,7 @@
 // @require       http://code.jquery.com/jquery-1.10.1.min.js
 // @include       http://*.todayhumor.*
 // @exclude
-// @version       6
+// @version       7
 // @grant         none
 // ==/UserScript==
 
@@ -109,7 +109,7 @@ $(document).ready(function(){
   });
   $("<div></div>").css({'float' : 'left',}).insertAfter('#logo_line2').append(menu_button);
   make_foldable($('#topmenu_container'), menu_button);
-  $('#logo_line').css('width', 'auto');
+  //$('#logo_line').css('width', 'auto');
 
   if (navigator.mozApps && navigator.platform.lastIndexOf("Linux",0) == 0) {
     $('#logo_line2').css('width', '100%');
