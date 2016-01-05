@@ -22,7 +22,7 @@ $(document).ready(function(){
     .data("orig_height", tail_layer.height())
     .data("orig_width", tail_layer.width());
 
-  $('div.tailDiv > div > input[onclick="combo()"]')
+  $('[onclick="combo()"]')
     .attr('onclick', null)
     .click(function(event){
       if(tail_layer.css('overflow')=='hidden'){
