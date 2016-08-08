@@ -49,6 +49,10 @@ $(document).ready(function(){
   $('table[width=1250]').width(1050);
 
   $('div[id^="layer"]').css('top', $("td[background='/img/topmn_bg.gif']").height());
+
+  (function removeChildElem(aElem) {
+    if (aElem) aElem.parentElement.removeChild(aElem);
+  })(document.body.querySelector("div>table tr[valign='top']"));
 });
 
 function makeSlideMenu(title, contents)
