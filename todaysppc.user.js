@@ -4,7 +4,7 @@
 // @description Customize and remove Ad. from Todays PPC site
 // @include     http://www.todaysppc.com/*
 // @exclude
-// @version     6
+// @version     7
 // @require	http://code.jquery.com/jquery-1.10.1.min.js
 // @grant       none
 // ==/UserScript==
