@@ -5,7 +5,7 @@
 // @require       http://code.jquery.com/jquery-1.10.1.min.js
 // @include       http://*.todayhumor.*
 // @exclude
-// @version       8
+// @version       9
 // @grant         none
 // ==/UserScript==
 
@@ -113,4 +113,5 @@ $(document).ready(function(){
   $('div#_atssh').remove();
   $('div#semanticrepScript').remove();
   $('.view').css('height', '23px');
+  $("div.no_take_out_alert_div_up, div.no_take_out_alert_div_down").remove();
 });
