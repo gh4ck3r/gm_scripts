@@ -3,7 +3,7 @@
 // @namespace     http://www.github.com/gh4ck3r
 // @description   Customize Todayhumor site.
 // @include       http://*.todayhumor.*
-// @version       12
+// @version       13
 // @grant         none
 // @run-at     	  document-end
 // ==/UserScript==
@@ -11,7 +11,16 @@
 const css = document.styleSheets.item(0);
 if (css != null) {
 	[
-    'div.contentContainer > div:first-of-type, div.under_ad_div, td.list_ad, div.ad_adsense, .contentContainer > table:first-of-type, #purudingding, .okListDiv {display: none;}',
+    [
+      'div.contentContainer > div:first-of-type',
+      'div.under_ad_div',
+      'td.list_ad',
+      'div.ad_adsense',
+      '.contentContainer > table:first-of-type',
+      '#purudingding',
+      '.okListDiv',
+      '#topmenu_line0 ~ div',
+    ].join(',') + '{display: none;}',
     '.view {height: auto !important;}',
     'div.okNokBookDiv {padding: 0px;}',
     '.slideToggle {transition: height .3s; overflow-y:hidden; }',
