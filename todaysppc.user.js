@@ -21,7 +21,7 @@
       'nav',	// Left navigation pane and button on mobile
       'body>center ~ div[style="display:inline-block;padding:1px;width:100%;height:100px;position:-webkit-sticky;top:10px; border:1px;font-size:9pt;background:#eeeeee"]',	// "See Mobile version" at bottom on mobile
       '#ljUJfypZLugD', // right ad on mobile
-    ].join(',') + '{display: none;}',
+    ].join(',') + '{display: none !important;}',
     '#layer1, #layer1 ~ div { top: 40px !important;}',
   ].forEach(css.insertRule.bind(css));
 })()
