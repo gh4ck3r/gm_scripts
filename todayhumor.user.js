@@ -3,7 +3,7 @@
 // @namespace     http://www.github.com/gh4ck3r
 // @description   Customize Todayhumor site.
 // @include       http://*.todayhumor.*
-// @version       13
+// @version       14
 // @grant         none
 // @run-at     	  document-end
 // ==/UserScript==
@@ -23,6 +23,9 @@ if (css != null) {
     ].join(',') + '{display: none;}',
     '.view {height: auto !important;}',
     'div.okNokBookDiv {padding: 0px;}',
+    '#logo_line, #logo_line_container {width: 910px !important;}',
+    '#topmenu_container { min-width: 0px !important; }',
+    '#topmenu_container .topmenu_line_container { width: 850px !important; }',
     '.slideToggle {transition: height .3s; overflow-y:hidden; }',
     '.slideToggleBtn {cursor: pointer;}',
     '.toggleHidden {height: 0px }',
