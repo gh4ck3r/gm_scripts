@@ -3,14 +3,14 @@
 // @namespace     http://www.github.com/gh4ck3r
 // @description   Customize Todayhumor site.
 // @include       http://*.todayhumor.*
-// @version       14
+// @version       15
 // @grant         none
 // @run-at     	  document-end
 // ==/UserScript==
 
 const css = document.styleSheets.item(0);
 if (css != null) {
-	[
+  [
     [
       'div.contentContainer > div:first-of-type',
       'div.under_ad_div',
@@ -20,6 +20,8 @@ if (css != null) {
       '#purudingding',
       '.okListDiv',
       '#topmenu_line0 ~ div',
+      '.no_take_out_alert_div_up',
+      '.no_take_out_alert_div_down',
     ].join(',') + '{display: none;}',
     '.view {height: auto !important;}',
     'div.okNokBookDiv {padding: 0px;}',
@@ -29,6 +31,7 @@ if (css != null) {
     '.slideToggle {transition: height .3s; overflow-y:hidden; }',
     '.slideToggleBtn {cursor: pointer;}',
     '.toggleHidden {height: 0px }',
+    '#tail_layer { min-height: 200px; }',
   ].forEach(css.insertRule.bind(css));
 }
 
@@ -61,3 +64,21 @@ function makeSlideToggle(toggler, content)
   });
   return true;
 }
+
+(function() {
+  const tail = document.querySelector('#tail_layer');
+  if (!tail) return;
+  tail.classList.add('slideToggle');
+  tail.style.height = '0px';
+  
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.textContent = (function popup_tail_view() {
+      const tail = document.querySelector('#tail_layer');
+      console.log(tail);
+      console.log(tail.style.height, tail.scrollHeight);
+      tail.style.height = (parseInt(tail.style.height) === 0 ? tail.scrollHeight : 0)+'px';
+    }).toSource();
+
+  document.head.appendChild(script);
+})();
