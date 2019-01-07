@@ -3,14 +3,14 @@
 // @namespace     http://www.github.com/gh4ck3r
 // @description   Customize Todayhumor site.
 // @include       http://*.todayhumor.*
-// @version       15
+// @version       16
 // @grant         none
 // @run-at     	  document-end
 // ==/UserScript==
 
 const css = document.styleSheets.item(0);
 if (css != null) {
-  [
+	[
     [
       'div.contentContainer > div:first-of-type',
       'div.under_ad_div',
@@ -71,14 +71,13 @@ function makeSlideToggle(toggler, content)
   tail.classList.add('slideToggle');
   tail.style.height = '0px';
   
-  const script = document.createElement('script');
+	const script = document.createElement('script');
   script.type = 'text/javascript';
-  script.textContent = (function popup_tail_view() {
-      const tail = document.querySelector('#tail_layer');
-      console.log(tail);
-      console.log(tail.style.height, tail.scrollHeight);
-      tail.style.height = (parseInt(tail.style.height) === 0 ? tail.scrollHeight : 0)+'px';
-    }).toSource();
+  script.textContent = popup_tail_view.toSource();
 
   document.head.appendChild(script);
+  function popup_tail_view() {
+    const {style, scrollHeight} = document.querySelector('#tail_layer');
+    style.height = (parseInt(style.height) === 0 ? scrollHeight : 0)+'px';
+  }
 })();
