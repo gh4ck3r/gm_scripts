@@ -3,7 +3,7 @@
 // @namespace   http://www.github.com/gh4ck3r
 // @description Customize and remove Ad. from Todays PPC site
 // @include     https://www.todaysppc.com/*
-// @version     12
+// @version     13
 // @grant       none
 // @run-at      document-end
 // ==/UserScript==
@@ -28,17 +28,25 @@
     '.slideToggle {transition: height .3s; overflow-y:hidden; }',
     '.slideToggleBtn {cursor: pointer;}',
     '.toggleHidden {height: 0px !important;, padding-top: 0px !important; padding-bottom: 0px !important; margin-top: 0px !important; margin-bottom: 0px !important;}',
+    '#work {width: 100% !important;}',
   ].forEach(css.insertRule.bind(css));
 })();
 
 (function() {
   const commentsFrame = document.querySelector('#work');
   if (commentsFrame instanceof HTMLIFrameElement) {
-    const {contentDocument} = commentsFrame;
-    if (contentDocument) {
-      contentDocument.querySelectorAll('#layer50,body>font:last-of-type')
-        .forEach(elem => elem.style.display='none');
-    }
+    commentsFrame.addEventListener('load', e => {
+      const css = commentsFrame.contentDocument.styleSheets[0];
+      if (!css) return;
+
+      [
+        [
+          '#layer50',
+          'body>font:last-of-type',
+          'img[src="skin/nzeo_bbs1/t.gif"][width="900"]',
+        ].join(',') + ' {display: none !important;}',
+      ].forEach(css.insertRule.bind(css));
+    });
   }
 })();
 
@@ -59,7 +67,7 @@
     makeSlideToggle(category, list);
     list.classList.toggle('toggleHidden');
   });
-  
+
   document.querySelectorAll('table[width="1330"]').forEach(t => t.width=1000);
 })()
 
