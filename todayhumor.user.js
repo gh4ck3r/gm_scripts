@@ -3,7 +3,7 @@
 // @namespace     http://www.github.com/gh4ck3r
 // @description   Customize Todayhumor site.
 // @include       http://*.todayhumor.*
-// @version       16
+// @version       17
 // @grant         none
 // @run-at     	  document-end
 // ==/UserScript==
@@ -50,19 +50,9 @@ document.querySelectorAll('div.okNokBookDiv img')
   makeSlideToggle(toggleBtn, container) && toggleBtn.insertAdjacentElement('afterend', container);
 })();
 
-function makeSlideToggle(toggler, content)
-{
-  if (![toggler, content].every(e => e instanceof HTMLElement)) return false;
 
-  content.classList.add('slideToggle');
-  const {style, offsetHeight: initialHeight} = content;
-  style.height = '0px';
-
-  toggler.classList.add('slideToggleBtn');
-  toggler.addEventListener('click', () => {
-    content.style.height = (content.offsetHeight === 0 ? initialHeight : 0) + 'px';
-  });
-  return true;
+if (navigator.userAgent.includes('Android')) {
+  document.querySelector('meta[name="viewport"]').content = "width=device-width, initial-scale=0.83";
 }
 
 (function() {
@@ -81,3 +71,18 @@ function makeSlideToggle(toggler, content)
     style.height = (parseInt(style.height) === 0 ? scrollHeight : 0)+'px';
   }
 })();
+
+function makeSlideToggle(toggler, content)
+{
+  if (![toggler, content].every(e => e instanceof HTMLElement)) return false;
+
+  content.classList.add('slideToggle');
+  const {style, offsetHeight: initialHeight} = content;
+  style.height = '0px';
+
+  toggler.classList.add('slideToggleBtn');
+  toggler.addEventListener('click', () => {
+    content.style.height = (content.offsetHeight === 0 ? initialHeight : 0) + 'px';
+  });
+  return true;
+}
