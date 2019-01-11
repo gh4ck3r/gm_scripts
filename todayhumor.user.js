@@ -3,7 +3,7 @@
 // @namespace     http://www.github.com/gh4ck3r
 // @description   Customize Todayhumor site.
 // @include       http://*.todayhumor.*
-// @version       17
+// @version       18
 // @grant         none
 // @run-at     	  document-end
 // ==/UserScript==
@@ -51,7 +51,7 @@ document.querySelectorAll('div.okNokBookDiv img')
 })();
 
 
-if (navigator.userAgent.includes('Android')) {
+if (navigator.userAgent.includes('Android') && window.screen.availWidth < 910) {	// 910 comes from width of #logo_line
   document.querySelector('meta[name="viewport"]').content = "width=device-width, initial-scale=0.83";
 }
 
